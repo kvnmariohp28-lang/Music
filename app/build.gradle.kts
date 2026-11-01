@@ -52,8 +52,8 @@ android {
         applicationId = "app.music.personal"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
-        versionName = "0.1.1"
+        versionCode = 3
+        versionName = "0.1.2"
         val updateRepository = providers.gradleProperty("music.updateRepository").orElse("").get()
         require(updateRepository.isEmpty() || updateRepository.matches(Regex("[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+"))) {
             "music.updateRepository must be owner/repository"
