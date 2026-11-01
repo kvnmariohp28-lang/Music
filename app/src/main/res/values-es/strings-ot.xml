@@ -208,7 +208,8 @@
     <string name="queue_button_description">Abre la cola con un botón junto a los demás botones del reproductor, en vez de deslizarla hacia arriba desde la parte inferior del reproductor.</string>
     <string name="media_control_buttons">Botones de control multimedia</string>
     <string name="android_auto_missing">¿No aparece en tu auto?</string>
-    <string name="android_auto_missing_body">Android Auto solo muestra las apps instaladas desde Google Play, así que oculta InterTune. Para que aparezca: abre la configuración de Android Auto en tu teléfono y toca diez veces la línea Versión. Luego abre Configuración para desarrolladores desde el menú de arriba y activa Fuentes desconocidas.</string>
+    <string name="android_auto_missing_body">Android Auto puede ocultar las apps instaladas mediante APK. Para mostrar Music: abre la configuración de Android Auto en tu teléfono, toca diez veces la línea Versión y, en Configuración para desarrolladores, activa Fuentes desconocidas.</string>
+    <string name="unofficial_build">Music es una compilación personal basada en InterTune y OuterTune (GPL-3.0). No es oficial ni cuenta con soporte de sus autores originales.</string>
     <string name="media_control_buttons_explain">Tu teléfono muestra dos botones junto a anterior, reproducir y siguiente: en la notificación, en la pantalla de bloqueo y en el panel multimedia. Toca dos, en el orden que quieras.</string>
     <string name="media_control_repeat">Repetir</string>
     <string name="loudness_repair">Igualar el volumen de las canciones</string>
@@ -452,7 +453,7 @@
     <string name="swipe_to_skip_title">Desliza horizontalmente para cambiar de canción</string>
     <string name="swipe_to_skip_description">Habilitar deslizar horizontalmente en el reproductor para cambiar de canción</string>
     <string name="max_queues_title">Número máximo de colas</string>
-    <string name="oobe_welcome_message">Bienvenido a InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_welcome_tip">Para disfrutar de la mejor experiencia, te recomendamos completar una configuración rápida para personalizar ajustes clave como el tema, la cuenta de YouTube, los medios locales y las descargas.</string>
     <string name="oobe_ytm_integration">Integración con YouTube Music</string>
     <string name="oobe_ytm_integration_description">Accede a tus pistas favoritas sin problemas</string>

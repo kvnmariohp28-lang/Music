@@ -16,7 +16,7 @@
     <string name="flat_subfolders_title">تسطيح المجلدات الفرعية</string>
     <string name="flat_subfolders_description">قم بالتعطيل للحفاظ على بنية الملفات كما هي على القرص</string>
     <string name="swipe_to_skip_description">تمكين السحب الأفقي في المشغل لتبديل الأغاني</string>
-    <string name="oobe_welcome_message">مرحبًا بك في InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <plurals name="scanner_n_song_found">
         <item quantity="zero">صفر اغنية</item>
         <item quantity="one">اغنية واحدة</item>

@@ -37,7 +37,7 @@ fun PlayerScreen(
         defaultValue = DEFAULT_PLAYER_BACKGROUND
     )
 
-    val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
+    val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.ON)
     val isSystemInDarkTheme = isSystemInDarkTheme()
     // As the app's theme is: dark on Battery use's Saver whatever was picked (BatteryUse.darkTheme).
     val batteryMode = LocalBatteryMode.current

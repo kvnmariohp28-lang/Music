@@ -18,7 +18,7 @@
     <string name="err_play_next_on_error">Възникна грешка. Възпроизвежда се следващото</string>
     <string name="scanner_btn_idle">Сканирай</string>
     <string name="scanner_sensitivity_L3">Съпоставете заглавие, изпълнители, албуми</string>
-    <string name="oobe_welcome_message">Добре дошли в InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="scanner_type_ffmpeg_ext">Използвайте инструмент за извличане на FFmpeg метаданни. Моля, използвайте само пълния вариант на приложението. Основният вариант може да причини проблеми с проследяването на песните</string>
     <string name="grp_layout">Оформление</string>
     <string name="grp_lyrics_parser">Анализатор</string>

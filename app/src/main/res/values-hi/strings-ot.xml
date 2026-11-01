@@ -448,7 +448,7 @@
     <string name="swipe_to_skip_title">गाना बदलने के लिए दाएं-बाएं स्वाइप करें</string>
     <string name="swipe_to_skip_description">प्लेयर में गाना बदलने के लिए दाएं-बाएं स्वाइप करना सक्षम करें</string>
     <string name="max_queues_title">कतारों की अधिकतम संख्या</string>
-    <string name="oobe_welcome_message">InterTune में आपका स्वागत है</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_welcome_tip">सबसे अच्छे अनुभव के लिए, हमारा सुझाव है कि आप एक छोटा सेटअप पूरा करें, ताकि थीम, YouTube खाता, स्थानीय मीडिया और डाउनलोड जैसी मुख्य सेटिंग्स आपके हिसाब से तय हो जाएं।</string>
     <string name="oobe_ytm_integration">YouTube Music से जुड़ाव</string>
     <string name="oobe_ytm_integration_description">अपने पसंदीदा गाने आसानी से सुनें</string>

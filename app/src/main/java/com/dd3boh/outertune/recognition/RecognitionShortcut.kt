@@ -20,7 +20,7 @@ import com.dd3boh.outertune.MainActivity
  * permission is asked and where a run is seen and stopped.
  */
 object RecognitionShortcut {
-    const val ACTION = "dev.skye.intertune.action.RECOGNISE"
+    const val ACTION = "app.music.personal.action.RECOGNISE"
 
     /** The recognition screen, listening from the moment it opens. */
     const val ROUTE = "recognition/listen"
@@ -38,3 +38,4 @@ object RecognitionShortcut {
     fun owed(action: String?, hadSavedInstanceState: Boolean, flags: Int): Boolean =
         action == ACTION && !hadSavedInstanceState && (flags and Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) == 0
 }
+

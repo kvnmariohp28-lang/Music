@@ -49,11 +49,16 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.skye.intertune"
+        applicationId = "app.music.personal"
         minSdk = 24
         targetSdk = 36
-        versionCode = 97
-        versionName = "0.12.5"
+        versionCode = 2
+        versionName = "0.1.1"
+        val updateRepository = providers.gradleProperty("music.updateRepository").orElse("").get()
+        require(updateRepository.isEmpty() || updateRepository.matches(Regex("[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+"))) {
+            "music.updateRepository must be owner/repository"
+        }
+        buildConfigField("String", "UPDATE_REPOSITORY", "\"$updateRepository\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Obfuscated, not encrypted, and the difference matters. Anything the app can read, so
@@ -145,7 +150,6 @@ android {
             manifestPlaceholders["carScreens"] = "false"
         }
         debug {
-            applicationIdSuffix = ".debug"
             manifestPlaceholders["carScreens"] = "true"
         }
 
@@ -217,7 +221,7 @@ android {
         variant.outputs
             .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
             .forEach { output ->
-                var outputFileName = "InterTune-${variant.versionName}-${output.baseName}-${output.versionCode}.apk"
+                var outputFileName = "Music-${variant.versionName}-${output.baseName}-${output.versionCode}.apk"
                 output.outputFileName = outputFileName
             }
     }

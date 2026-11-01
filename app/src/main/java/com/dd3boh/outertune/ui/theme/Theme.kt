@@ -14,12 +14,9 @@ import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.LocalRippleConfiguration
 import android.content.Context
 import android.graphics.Bitmap
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
@@ -28,7 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.palette.graphics.Palette
+import androidx.compose.material3.Typography
+import com.dd3boh.outertune.R
 import com.dd3boh.outertune.constants.Unreleased
 import com.google.material.color.dynamiccolor.DynamicScheme
 import com.google.material.color.hct.Hct
@@ -36,7 +37,30 @@ import com.google.material.color.scheme.SchemeTonalSpot
 import com.google.material.color.score.Score
 
 // TODO: support for custom accent
-val DefaultThemeColor = Color(0xFFED5564)
+val DefaultThemeColor = Color(0xFF1ED760)
+
+private val MusicFont = FontFamily(Font(R.font.manrope))
+
+private fun musicTypography(): Typography {
+    val base = Typography()
+    return base.copy(
+        displayLarge = base.displayLarge.copy(fontFamily = MusicFont),
+        displayMedium = base.displayMedium.copy(fontFamily = MusicFont),
+        displaySmall = base.displaySmall.copy(fontFamily = MusicFont),
+        headlineLarge = base.headlineLarge.copy(fontFamily = MusicFont),
+        headlineMedium = base.headlineMedium.copy(fontFamily = MusicFont),
+        headlineSmall = base.headlineSmall.copy(fontFamily = MusicFont),
+        titleLarge = base.titleLarge.copy(fontFamily = MusicFont),
+        titleMedium = base.titleMedium.copy(fontFamily = MusicFont),
+        titleSmall = base.titleSmall.copy(fontFamily = MusicFont),
+        bodyLarge = base.bodyLarge.copy(fontFamily = MusicFont),
+        bodyMedium = base.bodyMedium.copy(fontFamily = MusicFont),
+        bodySmall = base.bodySmall.copy(fontFamily = MusicFont),
+        labelLarge = base.labelLarge.copy(fontFamily = MusicFont),
+        labelMedium = base.labelMedium.copy(fontFamily = MusicFont),
+        labelSmall = base.labelSmall.copy(fontFamily = MusicFont),
+    )
+}
 
 @Composable
 fun OuterTuneTheme(
@@ -47,37 +71,33 @@ fun OuterTuneTheme(
     themeColor: Color = DefaultThemeColor,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = remember(darkTheme, pureBlack, themeColor) {
-       if (themeColor == DefaultThemeColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val systemTheme = if (darkTheme) {
-                dynamicDarkColorScheme(context).pureBlack(pureBlack)
-            } else {
-                dynamicLightColorScheme(context)
-            }
-
-
-            // when high contrast mode Android collapses all accent colours into (more or less) one shade. We use
-            // secondaryContainer and onSecondaryContainer weirdly in several places in terms of theming so just replace
-            // those with shades that make sense
-            if (highContrastCompat) {
-                systemTheme.copy(
-                    secondaryContainer = systemTheme.surfaceContainerHigh,
-                    onSecondaryContainer = systemTheme.secondary,
-                )
-            } else {
-                systemTheme
-            }
+    val colorScheme = remember(darkTheme, pureBlack, highContrastCompat, themeColor) {
+        val source = Hct.fromInt(themeColor.toArgb())
+        val generated = (if (Unreleased.COVER_ACCENT) CoverAccent.scheme(source, darkTheme) else SchemeTonalSpot(source, darkTheme, 0.0))
+            .toColorScheme()
+            .pureBlack(darkTheme && pureBlack)
+        val appTheme = if (themeColor == DefaultThemeColor) {
+            generated.copy(
+                primary = DefaultThemeColor,
+                onPrimary = Color(0xFF003912),
+                surfaceTint = DefaultThemeColor,
+            )
+        } else generated
+        // Keep the chosen green accent independent of Android's wallpaper colors while retaining
+        // the app's own contrast adjustment for the secondary controls.
+        if (highContrastCompat) {
+            appTheme.copy(
+                secondaryContainer = appTheme.surfaceContainerHigh,
+                onSecondaryContainer = appTheme.secondary,
+            )
         } else {
-            val source = Hct.fromInt(themeColor.toArgb())
-            (if (Unreleased.COVER_ACCENT) CoverAccent.scheme(source, darkTheme) else SchemeTonalSpot(source, darkTheme, 0.0))
-                .toColorScheme()
-                .pureBlack(darkTheme && pureBlack)
+            appTheme
         }
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = MaterialTheme.typography,
+        typography = remember { musicTypography() },
     ) {
         // Material's focus highlight is a 10% wash, which on a small keypad phone's screen is
         // hard to find. Only focus is made stronger: a press looks as it always has, and touch

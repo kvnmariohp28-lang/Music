@@ -99,7 +99,7 @@ class UpdateChecker @Inject constructor(
             return@withContext fake
         }
         // A fork never asks InterTune's releases: they are not its updates (FORKS.md).
-        if (!BuiltInKeys.official) return@withContext null
+        if (BuildConfig.UPDATE_REPOSITORY.isBlank()) return@withContext null
         val store = context.dataStore
         if (!force && !store.get(UpdateCheckEnabledKey, false)) return@withContext null
         // Offline means the check could not be made, not that there is no update: show an update
@@ -124,7 +124,7 @@ class UpdateChecker @Inject constructor(
         val body = runCatching {
             client.newCall(
                 Request.Builder()
-                    .url(RELEASES_URL)
+                    .url("https://api.github.com/repos/${BuildConfig.UPDATE_REPOSITORY}/releases/latest")
                     .header("Accept", "application/vnd.github+json")
                     .build()
             ).execute().use { response ->
@@ -284,9 +284,6 @@ class UpdateChecker @Inject constructor(
 
     private companion object {
         private const val TAG = "UpdateChecker"
-
-        private const val RELEASES_URL =
-            "https://api.github.com/repos/ItzSkyeYT/InterTune/releases/latest"
 
         /** `InterTune-0.10.2-core-release-79.apk` -> 79 */
         private val ASSET_VERSION_CODE = Regex("""-release-(\d+)\.apk$""")

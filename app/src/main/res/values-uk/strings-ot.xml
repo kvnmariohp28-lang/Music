@@ -4,7 +4,7 @@
     <string name="sort_by_like_date">Коли сподобалося</string>
     <string name="auto_scanner_description">Періодично оновлювати папки локальних медіафайлів та користувацьких завантажень під час відкриття програми</string>
     <string name="scanner_sensitivity_L3">Збіг назви, виконавця та альбому</string>
-    <string name="oobe_welcome_message">Вітаємо в InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="ytm_sync">Автоматично синхронізуватися з вашим обліковим записом YouTube Music</string>
     <string name="scanner_online_artist_linking">Спробувати зв\'язати виконавців локальних файлів з виконавцями в YouTube Music</string>
     <string name="folders">Теки</string>

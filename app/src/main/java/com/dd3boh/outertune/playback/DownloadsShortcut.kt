@@ -18,7 +18,7 @@ import com.dd3boh.outertune.freshLaunch
  * so a tap on them did nothing at all.
  */
 object DownloadsShortcut {
-    const val ACTION = "dev.skye.intertune.action.DOWNLOADS"
+    const val ACTION = "app.music.personal.action.DOWNLOADS"
 
     /** Downloaded songs, the library's own list of them (AutoPlaylistScreen), and its id there. */
     const val PLAYLIST = "downloaded"
@@ -47,3 +47,4 @@ object DownloadsShortcut {
     fun owed(action: String?, hadSavedInstanceState: Boolean, flags: Int): Boolean =
         action == ACTION && freshLaunch(hadSavedInstanceState, flags)
 }
+

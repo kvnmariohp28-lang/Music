@@ -34,19 +34,27 @@ import androidx.compose.foundation.layout.add
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Bookmark
+import androidx.compose.material.icons.rounded.BookmarkAdd
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.MoreHoriz
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -127,7 +135,11 @@ import com.dd3boh.outertune.lyrics.LyricsTiming
 import com.dd3boh.outertune.lyrics.LyricsLatin
 import com.dd3boh.outertune.lyrics.latinTools
 import com.dd3boh.outertune.lyrics.LyricsVideoPlan
+import com.dd3boh.outertune.lyrics.LyricEcho
+import com.dd3boh.outertune.lyrics.LyricsEcos
 import com.dd3boh.outertune.models.MediaMetadata
+import com.dd3boh.outertune.models.toMediaMetadata
+import com.dd3boh.outertune.playback.queues.YouTubeQueue
 import com.dd3boh.outertune.ui.component.button.IconButton
 import com.dd3boh.outertune.ui.component.shimmer.ShimmerHost
 import com.dd3boh.outertune.ui.component.shimmer.TextPlaceholder
@@ -146,6 +158,7 @@ import kotlinx.coroutines.withContext
 import org.akanework.gramophone.logic.utils.LrcUtils
 import org.akanework.gramophone.logic.utils.SemanticLyrics
 import org.akanework.gramophone.logic.utils.SemanticLyrics.LyricLine
+import com.zionhuang.innertube.models.WatchEndpoint
 import java.io.File
 import kotlin.time.Duration.Companion.seconds
 import androidx.compose.runtime.DisposableEffect
@@ -197,6 +210,11 @@ fun Lyrics(
     val showLatin by rememberPreference(LyricLatinKey, false)
 
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val lyricEcos by remember(context) { LyricsEcos.observe(context) }.collectAsState(initial = emptyList())
+    var showEchoEditor by rememberSaveable { mutableStateOf(false) }
+    var showEchoList by rememberSaveable { mutableStateOf(false) }
+    var echoNote by rememberSaveable { mutableStateOf("") }
+    var pendingEcho by remember { mutableStateOf<LyricEcho?>(null) }
 
     // How far this song's lines are moved against it (LyricsTiming), set in the timing bar. The
     // bar's own value leads while it is open and after, the setting being written only once the
@@ -938,6 +956,36 @@ fun Lyrics(
                     .padding(end = 12.dp, bottom = bottomPadding)
             ) {
                 IconButton(
+                    enabled = lines.isNotEmpty(),
+                    onClick = {
+                        val line = lines.getOrNull(currentLineIndex) ?: lines.firstOrNull() ?: return@IconButton
+                        pendingEcho = LyricEcho(
+                            songId = mediaMetadata.id,
+                            title = mediaMetadata.title,
+                            artist = mediaMetadata.artists.joinToString { it.name },
+                            line = line.text,
+                            note = "",
+                            positionMs = LyricsTiming.songPosition(line.start.toLong(), shiftNow),
+                            savedAt = System.currentTimeMillis(),
+                        )
+                        echoNote = ""
+                        showEchoEditor = true
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.BookmarkAdd,
+                        contentDescription = stringResource(R.string.lyrics_ecos_save_title),
+                        tint = textColor
+                    )
+                }
+                IconButton(onClick = { showEchoList = true }) {
+                    Icon(
+                        imageVector = Icons.Rounded.Bookmark,
+                        contentDescription = stringResource(R.string.lyrics_ecos_title),
+                        tint = textColor
+                    )
+                }
+                IconButton(
                     onClick = { onShowLyricsChange(false) }
                 ) {
                     Icon(
@@ -1006,6 +1054,107 @@ fun Lyrics(
                         cardVideo = null
                         stopPicking()
                     },
+                )
+            }
+
+            if (showEchoEditor && pendingEcho != null) {
+                val draft = pendingEcho!!
+                AlertDialog(
+                    onDismissRequest = { showEchoEditor = false },
+                    title = { Text(stringResource(R.string.lyrics_ecos_save_title)) },
+                    text = {
+                        Column {
+                            Text(
+                                text = draft.line,
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                            OutlinedTextField(
+                                value = echoNote,
+                                onValueChange = { echoNote = it },
+                                label = { Text(stringResource(R.string.lyrics_ecos_note_hint)) },
+                                modifier = Modifier.fillMaxWidth(),
+                                maxLines = 3,
+                            )
+                        }
+                    },
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                scope.launch {
+                                    LyricsEcos.save(context, draft.copy(note = echoNote.trim()))
+                                    Toast.makeText(context, R.string.lyrics_ecos_saved, Toast.LENGTH_SHORT).show()
+                                }
+                                showEchoEditor = false
+                            }
+                        ) { Text(stringResource(R.string.lyrics_ecos_save)) }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showEchoEditor = false }) {
+                            Text(stringResource(R.string.lyrics_ecos_cancel))
+                        }
+                    }
+                )
+            }
+
+            if (showEchoList) {
+                AlertDialog(
+                    onDismissRequest = { showEchoList = false },
+                    title = { Text(stringResource(R.string.lyrics_ecos_title)) },
+                    text = {
+                        if (lyricEcos.isEmpty()) {
+                            Text(stringResource(R.string.lyrics_ecos_empty))
+                        } else {
+                            Column(Modifier.heightIn(max = 420.dp).verticalScroll(rememberScrollState())) {
+                                lyricEcos.forEach { echo ->
+                                    TextButton(
+                                        onClick = {
+                                            if (echo.songId == mediaMetadata.id) {
+                                                playerConnection.player.seekTo(echo.positionMs)
+                                                showEchoList = false
+                                            } else {
+                                                scope.launch {
+                                                    val known = withContext(Dispatchers.IO) {
+                                                        playerConnection.service.database.song(echo.songId).first()?.toMediaMetadata()
+                                                    }
+                                                    if (known?.isLocal == true) {
+                                                        Toast.makeText(context, R.string.lyrics_ecos_reopen_hint, Toast.LENGTH_SHORT).show()
+                                                        return@launch
+                                                    }
+                                                    playerConnection.playQueue(
+                                                        YouTubeQueue(WatchEndpoint(videoId = echo.songId), known)
+                                                    )
+                                                    val loaded = withTimeoutOrNull(15.seconds) {
+                                                        playerConnection.mediaMetadata.first { it?.id == echo.songId }
+                                                    }
+                                                    if (loaded != null) {
+                                                        playerConnection.player.seekTo(echo.positionMs)
+                                                        showEchoList = false
+                                                    } else {
+                                                        Toast.makeText(context, R.string.lyrics_ecos_reopen_hint, Toast.LENGTH_SHORT).show()
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        modifier = Modifier.fillMaxWidth(),
+                                    ) {
+                                        Column(Modifier.fillMaxWidth()) {
+                                            Text(echo.line, color = MaterialTheme.colorScheme.primary)
+                                            Text("${echo.title} · ${echo.artist}", style = MaterialTheme.typography.labelMedium)
+                                            if (echo.note.isNotBlank()) {
+                                                Text(echo.note, style = MaterialTheme.typography.bodySmall)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    confirmButton = {
+                        TextButton(onClick = { showEchoList = false }) {
+                            Text(stringResource(R.string.lyrics_ecos_cancel))
+                        }
+                    }
                 )
             }
         }

@@ -362,7 +362,7 @@ fun BottomSheetPlayer(
     val livingSmoothing by rememberPreference(LivingSmoothingKey, defaultValue = LivingField.DEFAULT_SMOOTHING)
     val livingColours by rememberEnumPreference(LivingColoursKey, defaultValue = LivingColours.MAIN)
 
-    val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = false)
+    val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = true)
     val swipeToDismissPlayer by rememberPreference(SwipeToDismissPlayerKey, defaultValue = true)
     val groupedControls by rememberPreference(GroupedPlayerControlsKey, defaultValue = true)
     val playerBackdrop = rememberLayerBackdrop()
@@ -375,7 +375,7 @@ fun BottomSheetPlayer(
         defaultValue = SeekIncrement.OFF
     )
 
-    val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
+    val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.ON)
     val isSystemInDarkTheme = isSystemInDarkTheme()
     // As the app's theme is: dark on Battery use's Saver whatever was picked (BatteryUse.darkTheme).
     val batteryMode = LocalBatteryMode.current

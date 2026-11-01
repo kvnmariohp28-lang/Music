@@ -105,7 +105,7 @@
     <string name="import_failed_songs">インポートできませんでした:</string>
     <string name="dev_settings_title">開発者向け設定を有効にする</string>
     <string name="dev_settings_description">開発用途向けの追加の詳細設定を表示します</string>
-    <string name="oobe_welcome_message">ようこそ、InterTuneへ</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_complete">InterTuneのセットアップは完了し、利用可能です。好きな音楽にアクセスし、新しい曲を見つけお楽しみください！</string>
     <string name="action_back">戻る</string>
     <string name="action_next">次へ</string>

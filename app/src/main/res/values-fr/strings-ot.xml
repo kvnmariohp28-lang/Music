@@ -59,7 +59,7 @@
     <string name="scanner_online_artist_linking">Essayer de lier les artistes des fichiers locaux avec ceux de YouTube Music</string>
     <string name="import_failed_songs">Impossible d\'importer</string>
     <string name="dev_settings_title">Activer les paramètres du développeur</string>
-    <string name="oobe_welcome_message">Bienvenue sur InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_complete">InterTune est configuré et prêt à l\'emploi. Explorez votre musique, découvrez de nouveaux morceaux et profitez pleinement de l\'expérience !</string>
     <string name="action_next">Suivant</string>
     <string name="action_skip">Passer</string>

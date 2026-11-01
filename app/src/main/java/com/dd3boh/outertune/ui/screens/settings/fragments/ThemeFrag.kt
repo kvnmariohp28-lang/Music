@@ -100,8 +100,8 @@ import kotlin.math.roundToInt
 
 @Composable
 fun ColumnScope.ThemeAppFrag() {
-    val (darkMode, onDarkModeChange) = rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
-    val (dynamicTheme, onDynamicThemeChange) = rememberPreference(DynamicThemeKey, defaultValue = true)
+    val (darkMode, onDarkModeChange) = rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.ON)
+    val (dynamicTheme, onDynamicThemeChange) = rememberPreference(DynamicThemeKey, defaultValue = false)
     val (highContrastCompat, onHccChange) = rememberPreference(HighContrastKey, defaultValue = false)
 
     val (pureBlack, onPureBlackChange) = rememberPreference(PureBlackKey, defaultValue = false)
@@ -185,7 +185,7 @@ fun ColumnScope.ThemePlayerFrag() {
     )
     val (liquidGlass, onChromaticShockChange) = rememberPreference(
         PlayerLiquidGlassKey,
-        defaultValue = false
+        defaultValue = true
     )
     val (groupedControls, onGroupedControlsChange) = rememberPreference(
         GroupedPlayerControlsKey,

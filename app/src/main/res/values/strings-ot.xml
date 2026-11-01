@@ -333,7 +333,7 @@ while also allowing users to translate our app as well. New, specific strings to
     <string name="queue_button_description">Opens the queue from a button next to the other player buttons, instead of pulling it up from the bottom of the player.</string>
     <string name="media_control_buttons">Media control buttons</string>
     <string name="android_auto_missing">Not showing in your car?</string>
-    <string name="android_auto_missing_body">Android Auto only lists apps that Google Play installed, so it hides InterTune. To bring it in: open Android Auto\'s settings on your phone and tap the Version line ten times. Then open Developer settings from the menu at the top and turn on Unknown sources.</string>
+    <string name="android_auto_missing_body">Android Auto may hide apps installed from an APK. To show Music: open Android Auto settings on your phone, tap the Version line ten times, then open Developer settings from the menu and turn on Unknown sources.</string>
     <string name="media_control_buttons_explain">Your phone shows two buttons next to previous, play and next: in the notification, on the lock screen and in the media panel. Tap two, in the order you want them.</string>
     <string name="media_control_repeat">Repeat</string>
     <string name="loudness_repair">Fix song volumes</string>
@@ -618,7 +618,7 @@ while also allowing users to translate our app as well. New, specific strings to
     <string name="max_queues_title">Maximum number of queues</string>
 
 <!-- Setup wizard -->
-    <string name="oobe_welcome_message">Welcome to InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_welcome_tip">For the best experience, we recommend completing a quick setup to personalize key settings like theme, YouTube account, local media, and downloads.</string>
 
     <!-- Landing -->
@@ -935,7 +935,7 @@ while also allowing users to translate our app as well. New, specific strings to
     <string name="new_settings_search_here">Type what you want to change, typos and all, and tap a result to land right on it.</string>
     <string name="new_battery_use_here">Pick Full, Balanced or Saver in here, and Saver comes on with the phone\'s battery saver.</string>
     <!-- About in a fork's build, in place of InterTune's name and logo (FORKS.md, his yes of 27 Oct 2026). -->
-    <string name="unofficial_build">Unofficial build. This app is based on InterTune but is not InterTune, and InterTune\'s maker does not support it.</string>
+    <string name="unofficial_build">Personal build. Music is based on InterTune and OuterTune (GPL-3.0). It is unofficial and is not supported by their original authors.</string>
     <string name="new_import_body">Bring your playlists from Spotify, Apple Music, Deezer and others. Each song is looked up on YouTube Music.</string>
     <string name="new_import_way">Import from another app is in here. It brings your playlists over from Spotify, Apple Music and others.</string>
     <string name="new_import_here">Pick the app your playlists are in and follow its three steps.</string>

@@ -124,7 +124,7 @@ fun WelcomeBack(
 ) {
     // With Liquid glass on, the close button is frosted over the page itself: the page is a window
     // of its own, so it records its own content as the backdrop rather than the app's.
-    val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = false)
+    val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = true)
     val pageBackdrop = rememberLayerBackdrop()
     Dialog(
         onDismissRequest = onDone,

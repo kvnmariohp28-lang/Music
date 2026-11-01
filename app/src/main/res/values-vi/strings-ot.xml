@@ -106,7 +106,7 @@
     <string name="oobe_complete">InterTune đã thiết lập và sẵn sàng sử dụng. Khám phá âm nhạc, tìm bài hát mới, và tận hưởng trải nghiệm!</string>
     <string name="oobe_local_music_support_description">Phát tệp nhạc của bạn (VD. MP3, OGG, FLAC,...)</string>
     <string name="oobe_complete_title">Đã thiết lập thành công!</string>
-    <string name="oobe_welcome_message">Chào mừng đến với InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="action_done">Xong</string>
     <string name="download_on_wifi_only_description">Chờ kết nối không giới hạn dữ liệu rồi mới tải xuống. Những mục bạn yêu cầu tải khi đang dùng dữ liệu di động sẽ được xếp hàng chờ và tự bắt đầu khi có lại Wi-Fi</string>
     <string name="download_on_wifi_only_title">Chỉ tải xuống qua Wi-Fi</string>

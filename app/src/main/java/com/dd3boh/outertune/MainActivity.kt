@@ -718,8 +718,8 @@ class MainActivity : ComponentActivity() {
             val haptic = LocalHapticFeedback.current
             val snackbarHostState = remember { SnackbarHostState() }
 
-            val enableDynamicTheme by rememberPreference(DynamicThemeKey, defaultValue = true)
-            val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
+            val enableDynamicTheme by rememberPreference(DynamicThemeKey, defaultValue = false)
+            val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.ON)
             val highContrastCompat by rememberPreference(HighContrastKey, defaultValue = false)
             val chosenPureBlack by rememberPreference(PureBlackKey, defaultValue = false)
             val isSystemInDarkTheme = isSystemInDarkTheme()
@@ -1143,7 +1143,7 @@ class MainActivity : ComponentActivity() {
                 val bottomInset = with(density) { windowsInsets.getBottom(density).toDp() }
                 val cutoutInsets = WindowInsets.displayCutout
 
-                val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = false)
+                val liquidGlass by rememberPreference(PlayerLiquidGlassKey, defaultValue = true)
                 val glassIntensity by rememberPreference(PlayerGlassIntensityKey, defaultValue = 1f)
                 // TIRAMISU because lens() needs a RuntimeShader and the settings toggle is only
                 // offered at 33+. !useNavRail because playerAwareWindowInsets reserves left = 80dp
@@ -2402,11 +2402,11 @@ class MainActivity : ComponentActivity() {
     }
 
     companion object {
-        const val ACTION_SEARCH = "dev.skye.intertune.action.SEARCH"
-        const val ACTION_SONGS = "dev.skye.intertune.action.SONGS"
-        const val ACTION_ALBUMS = "dev.skye.intertune.action.ALBUMS"
-        const val ACTION_PLAYLISTS = "dev.skye.intertune.action.PLAYLISTS"
-        const val ACTION_PLAY_LIKED = "dev.skye.intertune.action.PLAY_LIKED"
+        const val ACTION_SEARCH = "app.music.personal.action.SEARCH"
+        const val ACTION_SONGS = "app.music.personal.action.SONGS"
+        const val ACTION_ALBUMS = "app.music.personal.action.ALBUMS"
+        const val ACTION_PLAYLISTS = "app.music.personal.action.PLAYLISTS"
+        const val ACTION_PLAY_LIKED = "app.music.personal.action.PLAY_LIKED"
     }
 }
 

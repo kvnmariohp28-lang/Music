@@ -456,7 +456,7 @@
     <string name="swipe_to_skip_title">Переключение треков свайпом</string>
     <string name="swipe_to_skip_description">Использовать свайпы в плеере для переключения между треками</string>
     <string name="max_queues_title">Максимальное количество очередей</string>
-    <string name="oobe_welcome_message">Добро пожаловать в InterTune</string>
+    <string name="oobe_welcome_message">Music by KVN</string>
     <string name="oobe_welcome_tip">Для наилучшего опыта рекомендуем пройти быструю начальную настройку, чтобы персонализировать основные параметры, такие как тема, аккаунт YouTube, локальные медиа и загрузки.</string>
     <string name="oobe_ytm_integration">Интеграция музыки с YouTube</string>
     <string name="oobe_ytm_integration_description">Получите легкий доступ к вашим любимым трекам</string>
