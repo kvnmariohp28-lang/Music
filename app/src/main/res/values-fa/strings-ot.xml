@@ -168,7 +168,7 @@
     <string name="dev_settings_description">تنظیمات پیشرفته اضافی را که برای استفاده در توسعه در نظر گرفته شده است، آشکار می‌کند</string>
     <string name="swipe_to_skip_title">برای تغییر آهنگ، انگشت خود را به صورت افقی بکشید</string>
     <string name="swipe_to_skip_description">فعال کردن کشیدن انگشت به صورت افقی در پخش‌کننده برای تغییر آهنگ‌ها</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_ytm_integration">ادغام موسیقی یوتیوب</string>
     <string name="oobe_ytm_integration_description">به آهنگ‌های مورد علاقه‌تان به طور یکپارچه دسترسی داشته باشید</string>
     <string name="oobe_ad_free_exp">بدون تبلیغات YouTube</string>

@@ -59,7 +59,7 @@
     <string name="scanner_online_artist_linking">Essayer de lier les artistes des fichiers locaux avec ceux de YouTube Music</string>
     <string name="import_failed_songs">Impossible d\'importer</string>
     <string name="dev_settings_title">Activer les paramètres du développeur</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_complete">InterTune est configuré et prêt à l\'emploi. Explorez votre musique, découvrez de nouveaux morceaux et profitez pleinement de l\'expérience !</string>
     <string name="action_next">Suivant</string>
     <string name="action_skip">Passer</string>
@@ -1276,7 +1276,7 @@
     <string name="audio_quality_no_lossless">Aucun flux sans perte n\'est proposé ici, donc ceci prend le meilleur flux disponible.</string>
     <string name="audio_quality_now_nothing">Pas encore connue</string>
     <!-- The home screen widget and its settings. -->
-    <string name="widget_label">En cours de lecture</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">Ce qui joue, ses commandes et la Sélection Rapide.</string>
     <string name="widget_nothing_playing">Rien en cours de lecture</string>
     <string name="widget_play">Lecture</string>

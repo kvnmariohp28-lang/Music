@@ -456,7 +456,7 @@
     <string name="swipe_to_skip_title">Переключение треков свайпом</string>
     <string name="swipe_to_skip_description">Использовать свайпы в плеере для переключения между треками</string>
     <string name="max_queues_title">Максимальное количество очередей</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">Для наилучшего опыта рекомендуем пройти быструю начальную настройку, чтобы персонализировать основные параметры, такие как тема, аккаунт YouTube, локальные медиа и загрузки.</string>
     <string name="oobe_ytm_integration">Интеграция музыки с YouTube</string>
     <string name="oobe_ytm_integration_description">Получите легкий доступ к вашим любимым трекам</string>
@@ -1375,7 +1375,7 @@
     <string name="audio_quality_now">Текущее качество</string>
     <string name="audio_quality_no_lossless">Здесь нет формата без потерь, поэтому выбирается поток с наибольшим битрейтом.</string>
     <string name="audio_quality_now_nothing">Пока неизвестно</string>
-    <string name="widget_label">Сейчас играет</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">Что сейчас играет, кнопки управления и «Быстрый выбор».</string>
     <string name="widget_nothing_playing">Ничего не играет</string>
     <string name="widget_play">Воспроизвести</string>

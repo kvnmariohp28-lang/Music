@@ -618,7 +618,7 @@ while also allowing users to translate our app as well. New, specific strings to
     <string name="max_queues_title">Maximum number of queues</string>
 
 <!-- Setup wizard -->
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">For the best experience, we recommend completing a quick setup to personalize key settings like theme, YouTube account, local media, and downloads.</string>
 
     <!-- Landing -->
@@ -1599,7 +1599,7 @@ while also allowing users to translate our app as well. New, specific strings to
     <string name="audio_quality_now">Playing now at</string>
     <string name="audio_quality_no_lossless">No lossless is offered here, so this takes the best stream available.</string>
     <string name="audio_quality_now_nothing">Not known yet</string>
-    <string name="widget_label">Now playing</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">What is playing, its controls, and Quick picks.</string>
     <string name="widget_nothing_playing">Nothing playing</string>
     <string name="widget_play">Play</string>

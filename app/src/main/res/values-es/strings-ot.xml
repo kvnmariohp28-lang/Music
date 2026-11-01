@@ -453,7 +453,7 @@
     <string name="swipe_to_skip_title">Desliza horizontalmente para cambiar de canción</string>
     <string name="swipe_to_skip_description">Habilitar deslizar horizontalmente en el reproductor para cambiar de canción</string>
     <string name="max_queues_title">Número máximo de colas</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">Para disfrutar de la mejor experiencia, te recomendamos completar una configuración rápida para personalizar ajustes clave como el tema, la cuenta de YouTube, los medios locales y las descargas.</string>
     <string name="oobe_ytm_integration">Integración con YouTube Music</string>
     <string name="oobe_ytm_integration_description">Accede a tus pistas favoritas sin problemas</string>
@@ -1331,7 +1331,7 @@
     <string name="audio_quality_now">Calidad actual</string>
     <string name="audio_quality_no_lossless">Aquí no se ofrece audio sin pérdida, así que se usa el stream más grande disponible.</string>
     <string name="audio_quality_now_nothing">Todavía no se sabe</string>
-    <string name="widget_label">Reproduciendo ahora</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">Lo que está sonando, sus controles y Selecciones rápidas.</string>
     <string name="widget_nothing_playing">No suena nada</string>
     <string name="widget_play">Reproducir</string>

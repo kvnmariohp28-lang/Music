@@ -803,14 +803,7 @@ class MainActivity : ComponentActivity() {
 
                 // Same contract as the update check: nothing happens unless the user opted in, it
                 // rate limits itself, and failure is silent.
-                coroutineScope.launch {
-                    // Only when the activity starts afresh. A rotation or a restore recreates it
-                    // while setup or the catch-up screen may be open, and somebody who has just
-                    // said yes to questions there, with news not answered yet, would have news
-                    // switched on before being asked. The switch-over only needs one fresh launch.
-                    if (savedInstanceState == null) pollChecker.adoptNewsChoice()
-                    pollChecker.check()
-                }
+                // Music does not fetch upstream polls at startup.
                 // Re-applied on every launch, once. This is also what puts the schedule back after
                 // a reboot, since WorkManager needs the app to run once before it will restore its
                 // own. A schedule that is there is kept, and replaced only when it was made for
@@ -820,7 +813,7 @@ class MainActivity : ComponentActivity() {
 
                 // And the same again for the once-a-day count: off unless asked for, silent when
                 // it fails, and a no-op on every open after the first one each day.
-                coroutineScope.launch { activeCount.ping() }
+                // Music does not send upstream active-user counts.
                 // Scheduled backups: a no-op until the switch is on, and otherwise puts the schedule
                 // back if it is missing. It replaces one that is there only when it was made for
                 // another interval than the settings say, as after a Restore, because replacing
@@ -1774,7 +1767,7 @@ class MainActivity : ComponentActivity() {
                                 // The launch ping already ran, before there was an answer to read.
                                 // Somebody who has just said yes should count today rather than
                                 // tomorrow, so ask once more now that the preference is written.
-                                coroutineScope.launch { activeCount.ping() }
+                                // Music does not send upstream active-user counts.
                             })
                         }
 

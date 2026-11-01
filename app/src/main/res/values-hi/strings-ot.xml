@@ -448,7 +448,7 @@
     <string name="swipe_to_skip_title">गाना बदलने के लिए दाएं-बाएं स्वाइप करें</string>
     <string name="swipe_to_skip_description">प्लेयर में गाना बदलने के लिए दाएं-बाएं स्वाइप करना सक्षम करें</string>
     <string name="max_queues_title">कतारों की अधिकतम संख्या</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">सबसे अच्छे अनुभव के लिए, हमारा सुझाव है कि आप एक छोटा सेटअप पूरा करें, ताकि थीम, YouTube खाता, स्थानीय मीडिया और डाउनलोड जैसी मुख्य सेटिंग्स आपके हिसाब से तय हो जाएं।</string>
     <string name="oobe_ytm_integration">YouTube Music से जुड़ाव</string>
     <string name="oobe_ytm_integration_description">अपने पसंदीदा गाने आसानी से सुनें</string>
@@ -1285,7 +1285,7 @@
     <string name="audio_quality_now">अभी की क्वालिटी</string>
     <string name="audio_quality_no_lossless">यहां लॉसलेस उपलब्ध नहीं है, इसलिए यह सबसे बड़ी उपलब्ध स्ट्रीम लेता है।</string>
     <string name="audio_quality_now_nothing">अभी पता नहीं</string>
-    <string name="widget_label">अभी चल रहा है</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">क्या चल रहा है, उसके कंट्रोल, और क्विक पिक्स।</string>
     <string name="widget_nothing_playing">कुछ नहीं चल रहा</string>
     <string name="widget_play">चलाएं</string>

@@ -444,7 +444,7 @@
     <string name="swipe_to_skip_title">Geser horizontal untuk mengganti lagu</string>
     <string name="swipe_to_skip_description">Aktifkan menggeser secara horizontal di pemutar untuk mengganti lagu</string>
     <string name="max_queues_title">Jumlah maksimal daftar lagu</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">Untuk pengalaman terbaik, Kami merekomendasikan menyelesaikan pengaturan cepat untuk pengaturan lebih lanjut seperti tema, akun YouTube, media lokal, Dan unduhan.</string>
     <string name="oobe_ytm_integration">Integrasi YouTube Music</string>
     <string name="oobe_ytm_integration_description">Akses trek favoritmu dengan mulus</string>
@@ -1240,7 +1240,7 @@
     <string name="audio_quality_now">Sedang diputar dengan</string>
     <string name="audio_quality_no_lossless">Format lossless tidak tersedia di sini, jadi yang dipakai adalah aliran terbesar yang ada.</string>
     <string name="audio_quality_now_nothing">Belum diketahui</string>
-    <string name="widget_label">Sedang diputar</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">Lagu yang sedang diputar, kontrolnya, dan Pilihan cepat.</string>
     <string name="widget_nothing_playing">Tidak ada yang diputar</string>
     <string name="widget_play">Putar</string>

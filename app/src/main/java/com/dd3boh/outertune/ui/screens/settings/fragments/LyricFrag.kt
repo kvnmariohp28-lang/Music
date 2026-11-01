@@ -66,7 +66,7 @@ fun ColumnScope.LyricFormatFrag() {
         LyricsTextPositionKey,
         defaultValue = LyricsPosition.CENTER
     )
-    val (lyricFontSize, onLyricFontSizeChange) = rememberPreference(LyricFontSizeKey, defaultValue = 20)
+    val (lyricFontSize, onLyricFontSizeChange) = rememberPreference(LyricFontSizeKey, defaultValue = 30)
     val (lyricLatin, onLyricLatinChange) = rememberPreference(LyricLatinKey, defaultValue = false)
 
     var showFontSizeDialog by remember {

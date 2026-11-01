@@ -144,6 +144,7 @@ import com.dd3boh.outertune.ui.component.button.IconButton
 import com.dd3boh.outertune.ui.component.shimmer.ShimmerHost
 import com.dd3boh.outertune.ui.component.shimmer.TextPlaceholder
 import com.dd3boh.outertune.ui.menu.LyricsMenu
+import com.dd3boh.outertune.ui.theme.MusicFont
 import com.dd3boh.outertune.ui.utils.fadingEdge
 import com.dd3boh.outertune.utils.dataStore
 import com.dd3boh.outertune.utils.rememberEnumPreference
@@ -199,8 +200,8 @@ fun Lyrics(
     var (showLyrics, onShowLyricsChange) = rememberPreference(ShowLyricsKey, false)
     val landscapeOffset = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
 
-    val lyricsTextPosition by rememberEnumPreference(LyricsTextPositionKey, LyricsPosition.CENTER)
-    val lyricsFontSize by rememberPreference(LyricFontSizeKey, 20)
+    val lyricsTextPosition by rememberEnumPreference(LyricsTextPositionKey, LyricsPosition.LEFT)
+    val lyricsFontSize by rememberPreference(LyricFontSizeKey, 30)
 
     val lyricsClickable by rememberPreference(LyricClickable, true)
     val lyricsAutoScroll by rememberPreference(LyricAutoScrollKey, true)
@@ -743,13 +744,13 @@ fun Lyrics(
                                 top = when {
                                     !isSynced -> if (index == 0) 8.dp else 0.dp
                                     item.isTranslated -> 0.dp
-                                    else -> 8.dp
+                                    else -> 12.dp
                                 },
                                 end = 24.dp,
                                 bottom = when {
                                     !isSynced -> if (index == lines.lastIndex) 8.dp else 0.dp
                                     item.isTranslated -> 16.dp
-                                    else -> 8.dp
+                                    else -> 12.dp
                                 },
                             )
                             // A picked line is lit from behind, out past its edges, so that
@@ -813,7 +814,10 @@ fun Lyrics(
                             val style = LocalTextStyle.current.copy(
                                 fontSize = lyricsFontSize.sp,
                                 color = textColor,
-                                fontWeight = FontWeight.Bold
+                                fontFamily = MusicFont,
+                                lineHeight = (lyricsFontSize * 1.3f).sp,
+                                letterSpacing = (-0.5).sp,
+                                fontWeight = FontWeight.ExtraBold
                             )
                             // Measured once for the line. It was measured again at every read of the
                             // song, a word at a time.
@@ -842,7 +846,10 @@ fun Lyrics(
                                         text = it.text,
                                         fontSize = lyricFontSizeAdjusted.sp,
                                         color = textColor,
-                                        fontWeight = FontWeight.Bold
+                                        fontFamily = MusicFont,
+                                lineHeight = (lyricsFontSize * 1.3f).sp,
+                                letterSpacing = (-0.5).sp,
+                                fontWeight = FontWeight.ExtraBold
                                     )
                                 }
                             }
@@ -857,7 +864,10 @@ fun Lyrics(
                                         LyricsPosition.CENTER -> TextAlign.Center
                                         LyricsPosition.RIGHT -> TextAlign.Right
                                     },
-                                    fontWeight = FontWeight.Bold
+                                    fontFamily = MusicFont,
+                                lineHeight = (lyricsFontSize * 1.3f).sp,
+                                letterSpacing = (-0.5).sp,
+                                fontWeight = FontWeight.ExtraBold
                                 )
                             }
 
@@ -869,13 +879,16 @@ fun Lyrics(
                             Text(
                                 text = remember(item.text, itemLatin, latinSize) { withLatin(item.text, itemLatin, latinSize) },
                                 fontSize = lyricFontSizeAdjusted.sp,
-                                color = if (isConsumed && !isHighlighted) prevTextColor else textColor,
+                                color = if (isHighlighted) MaterialTheme.colorScheme.onSurface else textColor,
                                 textAlign = when (lyricsTextPosition) {
                                     LyricsPosition.LEFT -> TextAlign.Left
                                     LyricsPosition.CENTER -> TextAlign.Center
                                     LyricsPosition.RIGHT -> TextAlign.Right
                                 },
-                                fontWeight = FontWeight.Bold,
+                                fontFamily = MusicFont,
+                                lineHeight = (lyricsFontSize * 1.3f).sp,
+                                letterSpacing = (-0.5).sp,
+                                fontWeight = FontWeight.ExtraBold,
                                 modifier = Modifier.alpha(
                                     if (picking) {
                                         // The picked lines stand out from the rest, whichever is being sung.
@@ -883,9 +896,9 @@ fun Lyrics(
                                     } else if (!isSynced || isHighlighted) {
                                         1f
                                     } else if (isConsumed) {
-                                        0.6f
+                                        0.34f
                                     } else {
-                                        0.5f
+                                        0.42f
                                     }
                                 )
                             )
@@ -919,7 +932,10 @@ fun Lyrics(
                         LyricsPosition.CENTER -> TextAlign.Center
                         LyricsPosition.RIGHT -> TextAlign.Right
                     },
-                    fontWeight = FontWeight.Bold,
+                    fontFamily = MusicFont,
+                                lineHeight = (lyricsFontSize * 1.3f).sp,
+                                letterSpacing = (-0.5).sp,
+                                fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 24.dp, vertical = 8.dp)

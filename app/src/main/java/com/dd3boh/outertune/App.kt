@@ -108,9 +108,7 @@ class App : Application(), SingletonImageLoader.Factory {
         // Before anything reads Battery use: the phone's battery saver can turn Saver on (PhoneBatterySaver).
         PhoneBatterySaver.start(this)
 
-        if (BuildConfig.DEBUG) {
-            System.setProperty("kotlinx.coroutines.debug", "on")
-        }
+        // Keep coroutine stack tracing disabled in Music builds to reduce runtime overhead.
 
         // 0.11 and 0.11.1 showed a test row that wrote the Bluetooth devices nearby to files in
         // this folder, which Android backs up. Nothing ever read them, so they go.

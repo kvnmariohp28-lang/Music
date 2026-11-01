@@ -39,7 +39,7 @@ import com.google.material.color.score.Score
 // TODO: support for custom accent
 val DefaultThemeColor = Color(0xFF1ED760)
 
-private val MusicFont = FontFamily(Font(R.font.manrope))
+internal val MusicFont = FontFamily(Font(R.font.manrope))
 
 private fun musicTypography(): Typography {
     val base = Typography()

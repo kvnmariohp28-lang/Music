@@ -526,7 +526,7 @@
     <string name="swipe_to_skip_title">Przeciągnij poziomo aby zmienić utwór</string>
     <string name="swipe_to_skip_description">Włącz zmienianie utworów za pomocą przeciągnięcia poziomo</string>
     <string name="max_queues_title">Maksymalna liczba kolejek</string>
-    <string name="oobe_welcome_message">Music by KVN</string>
+    <string name="oobe_welcome_message">Music :)</string>
     <string name="oobe_welcome_tip">Dla najlepszego doświadczenia, rekomendujemy wypełnienie quick setup by spersonalizować kluczowe ustawienia takie jak motyw, konto YouTube, lokalne media i pobrania.</string>
     <string name="oobe_ytm_integration">Integracja z YouTube Music</string>
     <string name="oobe_ytm_integration_description">Miej dostęp do swoich ulubionych utworów bez żadnych ograniczeń</string>
@@ -1509,7 +1509,7 @@
     <string name="audio_quality_now">Obecna jakość odtwarzania</string>
     <string name="audio_quality_no_lossless">Jakość bezstratna nie jest tu dostępna, więc wybierany jest największy dostępny strumień.</string>
     <string name="audio_quality_now_nothing">Jeszcze nieznana</string>
-    <string name="widget_label">Teraz odtwarzane</string>
+    <string name="widget_label">Music :)</string>
     <string name="widget_description">To, co gra, przyciski sterowania i Szybki wybór.</string>
     <string name="widget_nothing_playing">Nic nie gra</string>
     <string name="widget_play">Odtwórz</string>
